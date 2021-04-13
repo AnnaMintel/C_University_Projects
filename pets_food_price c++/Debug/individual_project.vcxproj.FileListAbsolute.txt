@@ -1,0 +1,3 @@
+E:\ПОИС 2021-2022\Основы алгоритмизации и программирования\individual_project\Debug\individual_project.exe
+E:\ПОИС 2021-2022\PROJECTS\animals_food_price\Debug\individual_project.exe
+E:\ПОИС 2021-2022\PROJECTS\pets_food_price c++\Debug\individual_project.exe
