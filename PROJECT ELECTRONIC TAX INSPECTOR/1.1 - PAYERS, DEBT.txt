@@ -1,0 +1,10 @@
+OOO_GoldStyle	500
+OOO_MirTorg	5000
+IP_Ivashkevich	7360
+ODO_LINDA	616
+OAO_LUCH	81000
+IP_Kikovskiy	0
+IP_Kozlovskiy	1300	
+IP_Seledko	785
+OOO_Euroopt	4200
+OOO_TechProm	438

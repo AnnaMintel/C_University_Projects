@@ -1,0 +1,3 @@
+D:\ПОИС 2021-2022\Основы алгоритмизации и программирования\ИТОГОВЫЙ ПРОЕКТ\PROJECT\Debug\PROJECT.exe
+D:\ПОИС 2021-2022\Основы алгоритмизации и программирования\FINAL PROJECT\MY PROJECT\Debug\PROJECT.exe
+D:\POIS 2021-2022\c++\FINAL PROJECT\MY PROJECT\Debug\PROJECT.exe
