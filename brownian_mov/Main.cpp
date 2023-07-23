@@ -12,13 +12,13 @@ class Particle {
 public:
 	Particle (float x, float y) : x(x), y(y) {}
 
-	// ôóíêöèÿ îáíîâëåíè ïîçèöèè òî÷åê ñ ó÷åòîì ñëó÷àéíûõ ñìåùåíèé è ñêîðîñòè
+	// функция обновления позиции точек с учетом случайных смещений и скорости
 	void updatePosition(float dx, float dy) {
 		x += dx * MOVEMENT_SPEED; 
 		y += dy * MOVEMENT_SPEED;
 	}
 
-	// âîçâðàùåíèå êîîðäèíàò òî÷åê ïî îñÿì X è Y
+	// возвращение координат точек по осям X и Y
 	float getX() const { return x; }
 	float getY() const { return y; }
 
@@ -27,15 +27,15 @@ private:
 };
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "brownian movement"); // ñîçäàíèå îêíà äëÿ îòðèñîâêè
-	std::vector<Particle> particles; // ñîçäàíèå âåêòîðà äëÿ õðàíåíèÿ ÷àñòèö
+	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "brownian movement"); // создание окна для отрисовки
+	std::vector<Particle> particles; // создание вектора для хранения частиц
 
-	// èíèöèàëèçàöèÿ ÷àñòèö ñëó÷àéíûìè ïîçèöèÿìè
+	// инициализация частиц случайными позициями
 	std::random_device rd;
 	std::default_random_engine generator(rd());
 	std::uniform_real_distribution<float> distribution(0.0, 1.0);
 
-	// ÷àñòèöû ñî ñëó÷àéíûìè êîîðäèíàòàìè çàïîëíÿþò ýêðàí 
+	// частицы со случайными координатами заполняют экран 
 	for (int i = 0; i < PARTICLE_COUNT; ++i) {
 		float x = distribution(generator) * WINDOW_WIDTH;
 		float y = distribution(generator) * WINDOW_HEIGHT;
@@ -49,7 +49,7 @@ int main() {
 				window.close();
 		}
 
-		// çà ñ÷åò ñëó÷àéíîãî ñìåùåíèÿ ïðîèñõîäèò îáíîâëåíèå ïîëîæåíèÿ ÷àñòèö
+		// за счет случайного смещения происходит обновление положения частиц
 		for (auto& particle : particles) {
 			float dx = distribution(generator) - 0.5;
 			float dy = distribution(generator) - 0.5;
@@ -58,7 +58,7 @@ int main() {
 
 		window.clear(sf::Color::White);
 
-		// îòðèñîâêà ÷àñòèö
+		// отрисовка частиц
 		for (const auto& particle : particles) {
 			sf::CircleShape shape(PARTICLE_RADIUS);
 			shape.setPosition(particle.getX(), particle.getY());
