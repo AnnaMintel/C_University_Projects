@@ -1,0 +1,4 @@
+﻿  Main.cpp
+C:\Users\pavel\Desktop\brownian_mov\Main.cpp(54): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\pavel\Desktop\brownian_mov\Main.cpp(55): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  brownian_mov.vcxproj -> C:\Users\pavel\Desktop\brownian_mov\Debug\brownian_mov.exe
