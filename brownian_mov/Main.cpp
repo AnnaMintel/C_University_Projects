@@ -1,4 +1,4 @@
-#include <SFML/Graphics.hpp> // библиотека добавлена при конфигурации проекта
+#include <SFML/Graphics.hpp> // Р±РёР±Р»РёРѕС‚РµРєР° РґРѕР±Р°РІР»РµРЅР° РїСЂРё РєРѕРЅС„РёРіСѓСЂР°С†РёРё РїСЂРѕРµРєС‚Р°
 #include <random>
 
 const int WINDOW_WIDTH = 600;
@@ -12,13 +12,13 @@ class Particle {
 public:
 	Particle (float x, float y) : x(x), y(y) {}
 
-	// функция обновлени позиции точек с учетом случайных смещений и скорости
+	// ГґГіГ­ГЄГ¶ГЁГї Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁ ГЇГ®Г§ГЁГ¶ГЁГЁ ГІГ®Г·ГҐГЄ Г± ГіГ·ГҐГІГ®Г¬ Г±Г«ГіГ·Г Г©Г­Г»Гµ Г±Г¬ГҐГ№ГҐГ­ГЁГ© ГЁ Г±ГЄГ®Г°Г®Г±ГІГЁ
 	void updatePosition(float dx, float dy) {
 		x += dx * MOVEMENT_SPEED; 
 		y += dy * MOVEMENT_SPEED;
 	}
 
-	// возвращение координат точек по осям X и Y
+	// ГўГ®Г§ГўГ°Г Г№ГҐГ­ГЁГҐ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІ ГІГ®Г·ГҐГЄ ГЇГ® Г®Г±ГїГ¬ X ГЁ Y
 	float getX() const { return x; }
 	float getY() const { return y; }
 
@@ -27,15 +27,15 @@ private:
 };
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "brownian movement"); // создание окна для отрисовки
-	std::vector<Particle> particles; // создание вектора для хранения частиц
+	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "brownian movement"); // Г±Г®Г§Г¤Г Г­ГЁГҐ Г®ГЄГ­Г  Г¤Г«Гї Г®ГІГ°ГЁГ±Г®ГўГЄГЁ
+	std::vector<Particle> particles; // Г±Г®Г§Г¤Г Г­ГЁГҐ ГўГҐГЄГІГ®Г°Г  Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї Г·Г Г±ГІГЁГ¶
 
-	// инициализация частиц случайными позициями
+	// ГЁГ­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї Г·Г Г±ГІГЁГ¶ Г±Г«ГіГ·Г Г©Г­Г»Г¬ГЁ ГЇГ®Г§ГЁГ¶ГЁГїГ¬ГЁ
 	std::random_device rd;
 	std::default_random_engine generator(rd());
 	std::uniform_real_distribution<float> distribution(0.0, 1.0);
 
-	// частицы со случайными координатами заполняют экран 
+	// Г·Г Г±ГІГЁГ¶Г» Г±Г® Г±Г«ГіГ·Г Г©Г­Г»Г¬ГЁ ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ Г¬ГЁ Г§Г ГЇГ®Г«Г­ГїГѕГІ ГЅГЄГ°Г Г­ 
 	for (int i = 0; i < PARTICLE_COUNT; ++i) {
 		float x = distribution(generator) * WINDOW_WIDTH;
 		float y = distribution(generator) * WINDOW_HEIGHT;
@@ -49,7 +49,7 @@ int main() {
 				window.close();
 		}
 
-		// за счет случайного смещения происходит обновление положения частиц
+		// Г§Г  Г±Г·ГҐГІ Г±Г«ГіГ·Г Г©Г­Г®ГЈГ® Г±Г¬ГҐГ№ГҐГ­ГЁГї ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГЇГ®Г«Г®Г¦ГҐГ­ГЁГї Г·Г Г±ГІГЁГ¶
 		for (auto& particle : particles) {
 			float dx = distribution(generator) - 0.5;
 			float dy = distribution(generator) - 0.5;
@@ -58,7 +58,7 @@ int main() {
 
 		window.clear(sf::Color::White);
 
-		// отрисовка частиц
+		// Г®ГІГ°ГЁГ±Г®ГўГЄГ  Г·Г Г±ГІГЁГ¶
 		for (const auto& particle : particles) {
 			sf::CircleShape shape(PARTICLE_RADIUS);
 			shape.setPosition(particle.getX(), particle.getY());
